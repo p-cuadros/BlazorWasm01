@@ -26,6 +26,9 @@ jobs:
     - name: Publish .NET Core Project
       run: dotnet publish blazorwasm01.csproj -c Release #-o release --nologo
 
+    - name: dotnet Versions
+      run: dotnet --list-sdks
+
     # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
     - name: Review contents
       run: ls bin/Release/net6.0/publish/wwwroot/
