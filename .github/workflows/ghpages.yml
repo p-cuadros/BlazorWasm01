@@ -46,8 +46,8 @@ jobs:
       #run: ls /home/runner/work/BlazorWasm01/BlazorWasm01/release/wwwroot
 
     # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to BlazorWasm01
-      run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorWasm01\/" \/>/g' bin/Release/net6.0/publish/wwwroot/index.html
+    # - name: Change base-tag in index.html from / to BlazorWasm01
+    #   run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorWasm01\/" \/>/g' bin/Release/net6.0/publish/wwwroot/index.html
     
     # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
