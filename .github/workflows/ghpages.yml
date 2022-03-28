@@ -28,7 +28,7 @@ jobs:
 
     # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
     - name: Review contents
-      run: ls bin\Release\net6.0\publish\wwwroot\
+      run: ls bin/Release/net6.0/publish/wwwroot/
       #bin/Release/net6.0/publish/wwwroot
       #run: ls /home/runner/work/BlazorWasm01/BlazorWasm01/release/wwwroot
 
