@@ -25,7 +25,11 @@ jobs:
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
       run: dotnet publish blazorwasm01.csproj -c Release -o release --nologo
-    
+
+    # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to BlazorWasm01
+      run: ls /home/runner/work/BlazorWasm01/BlazorWasm01/release/wwwroot
+
     # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to BlazorWasm01
       run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorWasm01\/" \/>/g' /home/runner/work/BlazorWasm01/BlazorWasm01/release/wwwroot/index.html
