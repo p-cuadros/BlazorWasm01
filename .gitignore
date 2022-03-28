@@ -209,3 +209,6 @@ project.lock.json
 Migrations/
 
 *.db
+
+#include folder
+!wwwroot/*
