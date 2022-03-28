@@ -40,26 +40,26 @@ jobs:
     #   run: cp wwwroot/* bin/Release/net6.0/publish/wwwroot/
 
     # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
-    - name: Review contents
-      run: ls bin/Release/net6.0/publish/wwwroot/
+    # - name: Review contents
+    #   run: ls bin/Release/net6.0/publish/wwwroot/
       #bin/Release/net6.0/publish/wwwroot
       #run: ls /home/runner/work/BlazorWasm01/BlazorWasm01/release/wwwroot
 
     # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
-    # - name: Change base-tag in index.html from / to BlazorWasm01
-    #   run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorWasm01\/" \/>/g' /home/runner/work/BlazorWasm01/BlazorWasm01/release/wwwroot/index.html
+    - name: Change base-tag in index.html from / to BlazorWasm01
+      run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorWasm01\/" \/>/g' bin/Release/net6.0/publish/wwwroot/index.html
     
-    # # copy index.html to 404.html to serve the same file when a file is not found
-    # - name: copy index.html to 404.html
-    #   run: cp /home/runner/work/BlazorWasm01/BlazorWasm01/release/wwwroot/index.html /home/runner/work/BlazorWasm01/BlazorWasm01/release/wwwroot/404.html
+    # copy index.html to 404.html to serve the same file when a file is not found
+    - name: copy index.html to 404.html
+      run: cp bin/Release/net6.0/publish/wwwroot/index.html bin/Release/net6.0/publish/wwwroot/404.html
 
-    # # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
-    # - name: Add .nojekyll file
-    #   run: touch /home/runner/work/BlazorWasm01/BlazorWasm01/release/wwwroot/.nojekyll
+    # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+    - name: Add .nojekyll file
+      run: touch bin/Release/net6.0/publish/wwwroot/.nojekyll
       
-    # - name: Commit wwwroot to GitHub Pages
-    #   uses: JamesIves/github-pages-deploy-action@3.7.1
-    #   with:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #     BRANCH: gh-pages
-    #     FOLDER: /home/runner/work/BlazorWasm01/BlazorWasm01/release/wwwroot
+    - name: Commit wwwroot to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: bin/Release/net6.0/publish/wwwroot
